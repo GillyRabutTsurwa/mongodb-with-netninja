@@ -29,3 +29,13 @@ console.log(sortedBooksByTitle);
 console.log("==================== Sorted Books By Rating (====================");
 const sortedBooksByRating = db.books.find().sort({ rating: 1 });
 console.log(sortedBooksByRating);
+
+/**
+ * NEW
+ * I did all the coding concerning nested documents in the shell
+ * there's not a lot to it. it's simply more elaborate data nested inside our data
+ * in my case, i made a new collection called booksWithReviews and the nested "document" is reviews...
+ * ... which is an array of objects
+ * the ninja calls it them nested documents but i find the term nested data to be more appropriate
+ * look over the booksWithReviews collection in the compass or in the shell for a better understanding if lost
+ */
