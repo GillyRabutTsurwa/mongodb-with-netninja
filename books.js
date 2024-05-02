@@ -1,4 +1,4 @@
-const db = connect("mongodb://localhost/bookstore");
+const db = connect("mongodb://localhost/library");
 console.log(db);
 
 // doing this here instead of the shell directly
