@@ -1,0 +1,13 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "description": "MongoDB with Net Ninja. More coming soon",
+  "main": "books.js",
+  "scripts": {
+    "serve": "tsc -w",
+    "build": "tsc && mongosh dist/books.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
