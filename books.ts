@@ -6,29 +6,18 @@ console.log(db);
 // doing this here instead of the shell directly
 const books = db.books.find();
 console.log(books);
-console.log("=======================")
-const greaterThanSeven = db.books.find({ rating: { $gt: 7}});
-console.log(greaterThanSeven);
-const lessThanSeven = db.books.find({ rating: { $lt: 7}});
-console.log(lessThanSeven);
-const greaterOrEqualToEight = db.books.find({ rating: { $gte: 7}});
-console.log(greaterThanSeven);
-const lessOrEqualToEight = db.books.find({ rating: { $lte: 7}});
-console.log(lessThanSeven);
-
-//combining queries
-const bestBook = db.books.find({ rating: { $gt: 7}, author: "Patrick Rothfuss"});
-console.log(bestBook);
-
-console.log("=================== $or Operator ===================");
-// or Operator
-// like || in js
-// ce code dit: envoie-moi les livres avec une evaluation de 6 OU 9
-const x = db.books.find({ $or: [{ rating: 6 }, { rating: 9 } ]});
+console.log("====================================");
+// $in: give me data whose values include the ones listed in the array
+// dans notre cas, donne-moi les livres dont les évaluations ont des valeurs 6, ou 8 ou 9
+const x = db.books.find({ rating: {$in: [6,8]}});
 console.log(x);
+// fait exactemment la même chose que:
+const x2 = db.books.find({ $or: [{ rating: 6 }, { rating: 8 }]});
+// mais il est clair que le premier est beaucoup plus facile à ecrire
 
-// donne-moi le livres ayant moins de 300 pages ou plus de 400 pages
-console.log("Complex Query: Page Settings");
-console.log("======================================");
-const y = db.books.find({ $or: [{ pages: { $lt: 300}}, { pages: { $gt: 400}}]});
+console.log("====================================");
+// l'inverse: $nin
+// donne-moi les livres dont les valeurs ne comprennent pas les valeurs 6, ou 8 ou 9
+const y = db.books.find({ rating: {$nin: [6,8]}});
 console.log(y);
+ 
